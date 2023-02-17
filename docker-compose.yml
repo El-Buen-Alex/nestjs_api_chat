@@ -5,10 +5,10 @@ services:
     container_name: database_postgre
     restart: always
     environment:
-      POSTGRES_DB: '${DB_POSTGRE_DATABASE}'
-      POSTGRES_USER: '${DB_POSTGRE_USERNAME}'
-      POSTGRES_PASSWORD: '${DB_POSTGRE_PASSWORD}'
+      POSTGRES_DB: '${DB_DATABASE}'
+      POSTGRES_USER: '${DB_USERNAME}'
+      POSTGRES_PASSWORD: '${DB_PASSWORD}'
     volumes:
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - '${DB_POSTGRE_PORT}:5432'
+      - '${DB_PORT}:5432'
