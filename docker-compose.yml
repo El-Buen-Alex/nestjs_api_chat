@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  database_postgre:
+    image: postgres:15.1
+    container_name: database_postgre
+    restart: always
+    environment:
+      POSTGRES_DB: '${DB_POSTGRE_DATABASE}'
+      POSTGRES_USER: '${DB_POSTGRE_USERNAME}'
+      POSTGRES_PASSWORD: '${DB_POSTGRE_PASSWORD}'
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - '${DB_POSTGRE_PORT}:5432'
