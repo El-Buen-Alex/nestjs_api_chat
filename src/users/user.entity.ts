@@ -1,9 +1,10 @@
 import { TimeStampEntity } from "src/shared/main.entity";
 import { BaseEntity, BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import * as bcrypt from 'bcrypt';
+import { IUser } from "src/shared/interfaces/user.interface";
 
 @Entity('users')
-export class UserEntity extends BaseEntity {
+export class UserEntity extends BaseEntity implements IUser {
     @PrimaryGeneratedColumn()
     id: number;
 
